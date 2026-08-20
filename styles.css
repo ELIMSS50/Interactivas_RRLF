@@ -1,0 +1,231 @@
+/* ===== RESET BÁSICO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ===== ENCABEZADO ===== */
+.encabezado {
+  background-color: #1e3a8a;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.titulo { font-size: 28px; }
+.lema { font-size: 14px; color: #cbd5e1; }
+
+/* ===== ESTRUCTURA ===== */
+/* Todo lo que no es el sidebar se recorre a la derecha */
+.principal {
+  margin-left: 200px;
+  transition: margin-left 0.3s;
+  min-height: 100vh;
+}
+
+.principal.comprimido { margin-left: 60px; }
+
+/* ===== SIDEBAR FIJO ===== */
+.sidebar {
+  width: 200px;
+  background-color: #1e293b;
+  color: #fff;
+  padding: 20px 0;
+  transition: width 0.3s;
+  overflow: hidden;
+
+  /* Fijo: no se mueve nunca al hacer scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+/* Botón del menú, ahora dentro del sidebar */
+.sidebar__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  margin-bottom: 15px;
+}
+
+.btn-menu {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 4px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-menu:hover { background-color: #1d4ed8; }
+
+/* Cuando está comprimido solo se ven los iconos */
+.sidebar.comprimido { width: 60px; }
+
+.sidebar__titulo {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* Al comprimir solo queda el botón */
+.sidebar.comprimido .sidebar__titulo { display: none; }
+.sidebar.comprimido .sidebar__top { padding: 0 10px; }
+
+.sidebar__lista a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  white-space: nowrap;
+}
+
+.sidebar__lista a:hover { background-color: #2563eb; }
+
+.icono { font-size: 18px; }
+
+/* Se oculta el texto al comprimir */
+.sidebar.comprimido .texto { display: none; }
+
+/* ===== CONTENIDO ===== */
+.contenido {
+  flex: 1;
+  padding: 25px;
+}
+
+.seccion-titulo {
+  font-size: 22px;
+  color: #1e3a8a;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #2563eb;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+section { margin-bottom: 40px; }
+
+/* ===== BANNER ===== */
+.banner {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.banner img { width: 100%; height: 220px; object-fit: cover; }
+
+.banner__texto {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  color: #fff;
+}
+
+.banner__texto h2 { font-size: 30px; }
+
+/* ===== PRODUCTOS ===== */
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.producto {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+}
+
+.producto:hover { box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); }
+
+.producto img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.producto h3 { font-size: 16px; margin-bottom: 5px; }
+
+.precio {
+  color: #2563eb;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.producto button {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.producto button:hover { background-color: #1d4ed8; }
+
+/* ===== RESEÑAS ===== */
+.resenas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.resena {
+  background-color: #fff;
+  border-left: 4px solid #2563eb;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.estrellas { color: #f59e0b; font-size: 18px; }
+.comentario { font-style: italic; margin: 8px 0; }
+.autor { font-weight: bold; font-size: 14px; color: #555; }
+
+/* ===== CONTACTO ===== */
+.contacto {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+/* ===== PIE ===== */
+.pie {
+  background-color: #1e293b;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .sidebar { width: 60px; }
+  .sidebar .texto, .sidebar__titulo { display: none; }
+  .principal { margin-left: 60px; }
+  .contenido { padding: 15px; }
+  .banner__texto { top: 30px; left: 20px; }
+  .banner__texto h2 { font-size: 20px; }
+}

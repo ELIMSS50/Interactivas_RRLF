@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroShop | Tienda de Electrónica</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== ENCABEZADO ===== -->
+  <!-- ===== SIDEBAR FIJO ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__top">
+      <button class="btn-menu" id="btnMenu">☰</button>
+      <h2 class="sidebar__titulo">Menú</h2>
+    </div>
+    <ul class="sidebar__lista">
+      <li><a href="#inicio"><span class="icono">🏠</span><span class="texto">Inicio</span></a></li>
+      <li><a href="#productos"><span class="icono">📦</span><span class="texto">Productos</span></a></li>
+      <li><a href="#resenas"><span class="icono">⭐</span><span class="texto">Reseñas</span></a></li>
+      <li><a href="#contacto"><span class="icono">✉️</span><span class="texto">Contacto</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- ===== ZONA DERECHA (se recorre junto al sidebar) ===== -->
+  <div class="principal" id="principal">
+
+    <header class="encabezado">
+      <h1 class="titulo">⚡ ElectroShop</h1>
+      <p class="lema">Tu tienda de electrónica</p>
+    </header>
+
+    <main class="contenido">
+
+      <!-- Banner -->
+      <section class="banner" id="inicio">
+        <img src="img/banner.svg" alt="Banner de la tienda">
+        <div class="banner__texto">
+          <h2>Ofertas de temporada</h2>
+          <p>Hasta 30% de descuento en tecnología</p>
+        </div>
+      </section>
+
+      <!-- Productos -->
+      <section id="productos">
+        <h2 class="seccion-titulo">Nuestros productos</h2>
+
+        <div class="productos">
+          <article class="producto">
+            <img src="img/laptop.svg" alt="Laptop">
+            <h3>Laptop Pro 14"</h3>
+            <p class="precio">$18,999</p>
+            <button>Comprar</button>
+          </article>
+
+          <article class="producto">
+            <img src="img/celular.svg" alt="Celular">
+            <h3>Smartphone X5</h3>
+            <p class="precio">$9,899</p>
+            <button>Comprar</button>
+          </article>
+
+          <article class="producto">
+            <img src="img/audifonos.svg" alt="Audífonos">
+            <h3>Audífonos ANC</h3>
+            <p class="precio">$2,499</p>
+            <button>Comprar</button>
+          </article>
+
+          <article class="producto">
+            <img src="img/teclado.svg" alt="Teclado">
+            <h3>Teclado Mecánico</h3>
+            <p class="precio">$1,299</p>
+            <button>Comprar</button>
+          </article>
+
+          <article class="producto">
+            <img src="img/bocina.svg" alt="Bocina">
+            <h3>Bocina Bluetooth</h3>
+            <p class="precio">$899</p>
+            <button>Comprar</button>
+          </article>
+
+          <article class="producto">
+            <img src="img/mouse.svg" alt="Mouse">
+            <h3>Mouse Inalámbrico</h3>
+            <p class="precio">$549</p>
+            <button>Comprar</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Reseñas -->
+      <section id="resenas">
+        <h2 class="seccion-titulo">Reseñas de clientes</h2>
+
+        <div class="resenas">
+          <article class="resena">
+            <p class="estrellas">★★★★★</p>
+            <p class="comentario">"Llegó antes de lo esperado y muy bien empaquetado. La laptop funciona excelente."</p>
+            <p class="autor">— Ana López</p>
+          </article>
+
+          <article class="resena">
+            <p class="estrellas">★★★★☆</p>
+            <p class="comentario">"Buenos precios y atención rápida. Los audífonos suenan muy bien por lo que cuestan."</p>
+            <p class="autor">— Carlos Ramírez</p>
+          </article>
+
+          <article class="resena">
+            <p class="estrellas">★★★★★</p>
+            <p class="comentario">"Ya es mi tercera compra aquí. Siempre productos originales y con garantía."</p>
+            <p class="autor">— María Fernández</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section id="contacto">
+        <h2 class="seccion-titulo">Contacto</h2>
+        <div class="contacto">
+          <p>📧 ventas@electroshop.com</p>
+          <p>📞 55 1234 5678</p>
+          <p>📍 Av. Principal 123, CDMX</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="pie">
+      <p>&copy; 2026 ElectroShop. Todos los derechos reservados.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
