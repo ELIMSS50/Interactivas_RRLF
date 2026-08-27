@@ -1,0 +1,35 @@
+/* Solo queda lo que Bootstrap no cubre con clases:
+   el ancho/animación del sidebar y las alturas fijas de las imágenes. */
+
+/* ===== SIDEBAR FIJO ===== */
+.sidebar { width: 200px; transition: width 0.3s; }
+.sidebar.comprimido { width: 60px; }
+
+/* Al comprimir solo quedan el botón y los iconos */
+.sidebar.comprimido .sidebar__titulo,
+.sidebar.comprimido .texto { display: none; }
+.sidebar.comprimido .sidebar__top { padding: 0 10px !important; }
+
+.sidebar .nav-link:hover { background-color: var(--bs-primary); }
+
+/* ===== ESTRUCTURA ===== */
+.principal { margin-left: 200px; transition: margin-left 0.3s; }
+.principal.comprimido { margin-left: 60px; }
+
+/* ===== BANNER ===== */
+.banner img { height: 220px; }
+
+.banner__texto { top: 60px; left: 40px; }
+
+/* ===== PRODUCTOS ===== */
+.producto img { height: 150px; }
+.producto:hover { box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .sidebar { width: 60px; }
+  .sidebar .texto, .sidebar__titulo { display: none; }
+  .principal { margin-left: 60px; }
+  .banner__texto { top: 30px; left: 20px; }
+  .banner__texto h2 { font-size: 20px; }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroShop | Tienda de Electrónica</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+  <!-- ===== SIDEBAR FIJO ===== -->
+  <aside class="sidebar position-fixed top-0 start-0 vh-100 bg-dark text-white overflow-hidden py-3" id="sidebar">
+    <div class="sidebar__top d-flex align-items-center gap-2 px-3 mb-3">
+      <button class="btn btn-primary btn-sm fs-5 lh-1 py-1 px-3" id="btnMenu">☰</button>
+      <h2 class="sidebar__titulo fs-6 text-uppercase text-secondary mb-0 text-nowrap">Menú</h2>
+    </div>
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link d-flex align-items-center gap-2 text-white px-4 py-2 text-nowrap" href="#inicio"><span class="icono fs-5">🏠</span><span class="texto">Inicio</span></a></li>
+      <li class="nav-item"><a class="nav-link d-flex align-items-center gap-2 text-white px-4 py-2 text-nowrap" href="#productos"><span class="icono fs-5">📦</span><span class="texto">Productos</span></a></li>
+      <li class="nav-item"><a class="nav-link d-flex align-items-center gap-2 text-white px-4 py-2 text-nowrap" href="#resenas"><span class="icono fs-5">⭐</span><span class="texto">Reseñas</span></a></li>
+      <li class="nav-item"><a class="nav-link d-flex align-items-center gap-2 text-white px-4 py-2 text-nowrap" href="#contacto"><span class="icono fs-5">✉️</span><span class="texto">Contacto</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- ===== ZONA DERECHA (se recorre junto al sidebar) ===== -->
+  <div class="principal min-vh-100" id="principal">
+
+    <header class="bg-primary text-white text-center p-4">
+      <h1 class="fs-2 mb-0">⚡ ElectroShop</h1>
+      <p class="small text-white-50 mb-0">Tu tienda de electrónica</p>
+    </header>
+
+    <main class="p-4">
+
+      <!-- Banner -->
+      <section class="banner position-relative rounded overflow-hidden mb-5" id="inicio">
+        <img src="img/banner.svg" alt="Banner de la tienda" class="w-100 object-fit-cover">
+        <div class="banner__texto position-absolute text-white">
+          <h2 class="fs-1">Ofertas de temporada</h2>
+          <p class="mb-0">Hasta 30% de descuento en tecnología</p>
+        </div>
+      </section>
+
+      <!-- Productos -->
+      <section class="mb-5" id="productos">
+        <h2 class="seccion-titulo fs-4 text-primary d-inline-block border-bottom border-primary border-3 pb-1 mb-3">Nuestros productos</h2>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+          <article class="col">
+            <div class="card producto h-100 text-center p-3">
+              <img src="img/laptop.svg" alt="Laptop" class="w-100 object-fit-cover rounded mb-2">
+              <div class="card-body p-0">
+                <h3 class="fs-6 fw-bold mb-1">Laptop Pro 14"</h3>
+                <p class="precio text-primary fs-5 fw-bold mb-2">$18,999</p>
+                <button class="btn btn-primary btn-sm px-4">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="col">
+            <div class="card producto h-100 text-center p-3">
+              <img src="img/celular.svg" alt="Celular" class="w-100 object-fit-cover rounded mb-2">
+              <div class="card-body p-0">
+                <h3 class="fs-6 fw-bold mb-1">Smartphone X5</h3>
+                <p class="precio text-primary fs-5 fw-bold mb-2">$9,899</p>
+                <button class="btn btn-primary btn-sm px-4">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="col">
+            <div class="card producto h-100 text-center p-3">
+              <img src="img/audifonos.svg" alt="Audífonos" class="w-100 object-fit-cover rounded mb-2">
+              <div class="card-body p-0">
+                <h3 class="fs-6 fw-bold mb-1">Audífonos ANC</h3>
+                <p class="precio text-primary fs-5 fw-bold mb-2">$2,499</p>
+                <button class="btn btn-primary btn-sm px-4">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="col">
+            <div class="card producto h-100 text-center p-3">
+              <img src="img/teclado.svg" alt="Teclado" class="w-100 object-fit-cover rounded mb-2">
+              <div class="card-body p-0">
+                <h3 class="fs-6 fw-bold mb-1">Teclado Mecánico</h3>
+                <p class="precio text-primary fs-5 fw-bold mb-2">$1,299</p>
+                <button class="btn btn-primary btn-sm px-4">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="col">
+            <div class="card producto h-100 text-center p-3">
+              <img src="img/bocina.svg" alt="Bocina" class="w-100 object-fit-cover rounded mb-2">
+              <div class="card-body p-0">
+                <h3 class="fs-6 fw-bold mb-1">Bocina Bluetooth</h3>
+                <p class="precio text-primary fs-5 fw-bold mb-2">$899</p>
+                <button class="btn btn-primary btn-sm px-4">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="col">
+            <div class="card producto h-100 text-center p-3">
+              <img src="img/mouse.svg" alt="Mouse" class="w-100 object-fit-cover rounded mb-2">
+              <div class="card-body p-0">
+                <h3 class="fs-6 fw-bold mb-1">Mouse Inalámbrico</h3>
+                <p class="precio text-primary fs-5 fw-bold mb-2">$549</p>
+                <button class="btn btn-primary btn-sm px-4">Comprar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Reseñas -->
+      <section class="mb-5" id="resenas">
+        <h2 class="seccion-titulo fs-4 text-primary d-inline-block border-bottom border-primary border-3 pb-1 mb-3">Reseñas de clientes</h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <article class="col">
+            <div class="card h-100 border-0 border-start border-primary border-4 rounded p-3">
+              <p class="estrellas text-warning fs-5 mb-0">★★★★★</p>
+              <p class="fst-italic my-2">"Llegó antes de lo esperado y muy bien empaquetado. La laptop funciona excelente."</p>
+              <p class="fw-bold small text-secondary mb-0">— Ana López</p>
+            </div>
+          </article>
+
+          <article class="col">
+            <div class="card h-100 border-0 border-start border-primary border-4 rounded p-3">
+              <p class="estrellas text-warning fs-5 mb-0">★★★★☆</p>
+              <p class="fst-italic my-2">"Buenos precios y atención rápida. Los audífonos suenan muy bien por lo que cuestan."</p>
+              <p class="fw-bold small text-secondary mb-0">— Carlos Ramírez</p>
+            </div>
+          </article>
+
+          <article class="col">
+            <div class="card h-100 border-0 border-start border-primary border-4 rounded p-3">
+              <p class="estrellas text-warning fs-5 mb-0">★★★★★</p>
+              <p class="fst-italic my-2">"Ya es mi tercera compra aquí. Siempre productos originales y con garantía."</p>
+              <p class="fw-bold small text-secondary mb-0">— María Fernández</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section class="mb-5" id="contacto">
+        <h2 class="seccion-titulo fs-4 text-primary d-inline-block border-bottom border-primary border-3 pb-1 mb-3">Contacto</h2>
+        <div class="card p-3">
+          <p class="mb-0">📧 ventas@electroshop.com</p>
+          <p class="mb-0">📞 55 1234 5678</p>
+          <p class="mb-0">📍 Av. Principal 123, CDMX</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bg-dark text-secondary text-center p-3 small">
+      <p class="mb-0">&copy; 2026 ElectroShop. Todos los derechos reservados.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
