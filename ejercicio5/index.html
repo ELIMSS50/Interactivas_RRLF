@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tinta y Papel · Librería</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="#">Tinta y Papel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#club">Club</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary ms-lg-3 dropdown-toggle position-relative" type="button"
+            id="carritoDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+            Mi bolsa
+            <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle d-none"
+              id="carritoContador">0</span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end p-3 shadow" style="min-width: 320px;"
+            aria-labelledby="carritoDropdownBtn">
+            <h6 class="mb-3">Tu bolsa de libros</h6>
+
+            <div id="carritoItems">
+              <p class="text-muted text-center mb-0" id="carritoVacioMsg">Todavía no has elegido ningún libro.</p>
+            </div>
+
+            <hr>
+            <div class="d-flex justify-content-between fw-bold mb-3">
+              <span>Total:</span>
+              <span id="carritoTotal">$0.00</span>
+            </div>
+            <button type="button" class="btn btn-outline-danger w-100" id="btnVaciarCarrito">
+              Vaciar bolsa
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section text-white py-5">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-3 fw-bold">Un libro nuevo <br>para cada semana</h1>
+          <p class="lead my-4">Librería independiente. Novela, ensayo y poesía elegidos a mano.</p>
+          <a href="#catalogo" class="btn btn-light btn-lg rounded-pill px-5 py-3 shadow">
+            Ver el catálogo
+          </a>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block text-end">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop&q=80"
+            alt="Librería" class="img-fluid rounded-4 shadow-lg" style="max-height: 350px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Nuestro catálogo</h2>
+        <p class="text-muted">Lo que estamos recomendando este mes</p>
+      </div>
+
+      <!-- Buscador y filtro por género -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <input type="text" id="buscarProducto" class="form-control form-control-lg"
+            placeholder="Buscar por título...">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center justify-content-md-start gap-2 flex-wrap">
+          <button type="button" class="btn btn-outline-primary btn-filtro active" data-categoria="todos">Todos</button>
+          <button type="button" class="btn btn-outline-primary btn-filtro" data-categoria="novela">Novela</button>
+          <button type="button" class="btn btn-outline-primary btn-filtro" data-categoria="ensayo">Ensayo</button>
+          <button type="button" class="btn btn-outline-primary btn-filtro" data-categoria="poesia">Poesía</button>
+        </div>
+      </div>
+
+      <div class="row g-4" id="listaProductos">
+        <!-- Libro 1 -->
+        <div class="col-md-6 col-lg-4 producto-item" data-categoria="novela" data-nombre="cien anos de sombra">
+          <div class="card product-card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&auto=format&fit=crop&q=80"
+              class="card-img-top" alt="Cien años de sombra">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">Novela</span>
+              <h5 class="card-title">Cien años de sombra</h5>
+              <p class="card-text text-muted">Una familia, un pueblo y un secreto que no se va.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">$24.90</span>
+                <button class="btn btn-sm btn-outline-primary btn-add-to-cart" data-product="Cien años de sombra"
+                  data-price="24.90">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Libro 2 -->
+        <div class="col-md-6 col-lg-4 producto-item" data-categoria="novela" data-nombre="el jardin de piedra">
+          <div class="card product-card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=400&auto=format&fit=crop&q=80"
+              class="card-img-top" alt="El jardín de piedra">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">Novela</span>
+              <h5 class="card-title">El jardín de piedra</h5>
+              <p class="card-text text-muted">Dos hermanas vuelven a la casa que juraron no pisar.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">$19.50</span>
+                <button class="btn btn-sm btn-outline-primary btn-add-to-cart" data-product="El jardín de piedra"
+                  data-price="19.50">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Libro 3 -->
+        <div class="col-md-6 col-lg-4 producto-item" data-categoria="ensayo" data-nombre="notas sobre el silencio">
+          <div class="card product-card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&auto=format&fit=crop&q=80"
+              class="card-img-top" alt="Notas sobre el silencio">
+            <div class="card-body">
+              <span class="badge bg-warning text-dark mb-2">Ensayo</span>
+              <h5 class="card-title">Notas sobre el silencio</h5>
+              <p class="card-text text-muted">Por qué dejamos de escuchar y cómo volver a hacerlo.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">$28.00</span>
+                <button class="btn btn-sm btn-outline-primary btn-add-to-cart" data-product="Notas sobre el silencio"
+                  data-price="28.00">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Libro 4 -->
+        <div class="col-md-6 col-lg-4 producto-item" data-categoria="ensayo" data-nombre="contra la prisa">
+          <div class="card product-card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&auto=format&fit=crop&q=80"
+              class="card-img-top" alt="Contra la prisa">
+            <div class="card-body">
+              <span class="badge bg-warning text-dark mb-2">Ensayo</span>
+              <h5 class="card-title">Contra la prisa</h5>
+              <p class="card-text text-muted">Un alegato tranquilo a favor de hacer menos cosas.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">$21.00</span>
+                <button class="btn btn-sm btn-outline-primary btn-add-to-cart" data-product="Contra la prisa"
+                  data-price="21.00">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Libro 5 -->
+        <div class="col-md-6 col-lg-4 producto-item" data-categoria="poesia" data-nombre="cuaderno de lluvia">
+          <div class="card product-card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&auto=format&fit=crop&q=80"
+              class="card-img-top" alt="Cuaderno de lluvia">
+            <div class="card-body">
+              <span class="badge bg-success mb-2">Poesía</span>
+              <h5 class="card-title">Cuaderno de lluvia</h5>
+              <p class="card-text text-muted">Poemas breves escritos durante un invierno largo.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">$15.00</span>
+                <button class="btn btn-sm btn-outline-primary btn-add-to-cart" data-product="Cuaderno de lluvia"
+                  data-price="15.00">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Libro 6 -->
+        <div class="col-md-6 col-lg-4 producto-item" data-categoria="poesia" data-nombre="bitacora de un insomne">
+          <div class="card product-card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&auto=format&fit=crop&q=80"
+              class="card-img-top" alt="Bitácora de un insomne">
+            <div class="card-body">
+              <span class="badge bg-success mb-2">Poesía</span>
+              <h5 class="card-title">Bitácora de un insomne</h5>
+              <p class="card-text text-muted">Lo que se piensa entre las tres y las cinco de la mañana.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">$17.50</span>
+                <button class="btn btn-sm btn-outline-primary btn-add-to-cart" data-product="Bitácora de un insomne"
+                  data-price="17.50">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensaje cuando no hay resultados -->
+      <div id="sinResultados" class="text-center text-muted py-5 d-none">
+        <p class="fs-5 mb-3">No encontramos ningún libro con esa búsqueda.</p>
+        <button type="button" class="btn btn-primary" id="btnLimpiarBusqueda">Limpiar búsqueda</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="club" class="bg-light py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <h2 class="display-5 fw-bold">Club de lectura</h2>
+          <p class="lead">Un libro al mes, <span class="text-primary fw-bold">15% de descuento</span> y una charla el
+            último jueves.</p>
+          <button class="btn btn-primary rounded-pill px-5 py-3 shadow" data-bs-toggle="modal"
+            data-bs-target="#clubModal">
+            Ver los planes
+          </button>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="display-1 text-primary opacity-25">☕</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Lo que dicen nuestros lectores</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center">
+              <div class="display-4 text-primary mb-3">👤</div>
+              <p class="card-text">"Siempre me recomiendan algo que no habría encontrado solo."</p>
+              <h6 class="card-subtitle text-muted">— Andrea M.</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center">
+              <div class="display-4 text-primary mb-3">👤</div>
+              <p class="card-text">"El club de lectura me devolvió el hábito de leer."</p>
+              <h6 class="card-subtitle text-muted">— Diego P.</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center">
+              <div class="display-4 text-primary mb-3">👤</div>
+              <p class="card-text">"Pedí un título agotado y me lo consiguieron en una semana."</p>
+              <h6 class="card-subtitle text-muted">— Rocío V.</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h2 class="display-5 fw-bold">Boletín de novedades</h2>
+          <p class="text-secondary">Te avisamos cuando llegan los libros nuevos.</p>
+          <div class="input-group mt-4 mx-auto" style="max-width: 500px;">
+            <input type="email" id="emailInput" class="form-control form-control-lg" placeholder="Tu email">
+            <button class="btn btn-primary btn-lg" id="btnSubscribe" type="button">Suscribirme</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-white-50 py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">© 2026 Tinta y Papel. Todos los derechos reservados.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white-50 me-3">Facebook</a>
+          <a href="#" class="text-white-50 me-3">Instagram</a>
+          <a href="#" class="text-white-50">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Libro añadido a la bolsa -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">¡Libro añadido!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center py-3">
+            <div class="display-1 text-success mb-3">✓</div>
+            <h4 id="modalProductName">Libro</h4>
+            <p class="text-muted">Ya está en tu bolsa.</p>
+            <div class="alert alert-info">
+              <strong>Precio:</strong> <span id="modalProductPrice">$0.00</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir viendo</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ver mi bolsa</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Planes del club -->
+  <div class="modal fade" id="clubModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Planes del club de lectura</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card border-warning">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Mensual</h5>
+                  <p class="card-text display-6 text-warning">$18</p>
+                  <p class="text-muted">Un libro al mes y la charla del jueves</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card border-success">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Anual</h5>
+                  <p class="card-text display-6 text-success">$180</p>
+                  <p class="text-muted">Doce libros y dos meses de regalo</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card border-danger">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Cupos limitados</h5>
+                  <p class="text-danger fw-bold">Solo 30 lugares por generación</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Quiero entrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Suscripción exitosa -->
+  <div class="modal fade" id="suscripcionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">¡Suscripción exitosa!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center py-3">
+            <div class="display-1 text-info mb-3">✓</div>
+            <h4>¡Gracias por suscribirte!</h4>
+            <p class="text-muted">Recibirás nuestras novedades en:</p>
+            <div class="alert alert-light border">
+              <strong id="modalEmailSubscription">usuario@email.com</strong>
+            </div>
+            <p class="small text-muted">Puedes darte de baja en cualquier momento.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info text-white" data-bs-dismiss="modal">Genial</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Error en suscripción -->
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Error</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center py-3">
+            <div class="display-1 text-danger mb-3">✗</div>
+            <h4>Email no válido</h4>
+            <p class="text-muted">Por favor, ingresa una dirección de correo electrónico válida.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Intentar de nuevo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="jqery.js"></script>
+</body>
+
+</html>

@@ -10,12 +10,13 @@ Ejercicios de la materia de Interactivas.
 | `ejercicio2/` | Tarjeta de perfil hecha con **Bootstrap 5**. |
 | `ejercicio3/` | El mismo sitio del ejercicio 1, pero maquetado con **Bootstrap 5** en lugar de CSS propio. |
 | `ejercicio4/` | **PyForge**, sitio de un taller de automatización con Python. Layout completo (header, hero, servicios, testimonios y footer) armado con el **sistema de malla de Bootstrap 5**: gutters, offset y order. |
+| `ejercicio5/` | **Tinta y Papel**, landing de una librería con **Bootstrap 5 + jQuery**: modales, bolsa de compra en dropdown con cantidades y total, buscador y filtro por género. |
 
 ## Cómo verlos
 
 Abrir el archivo `index.html` de la carpeta correspondiente en el navegador.
 
-Los ejercicios 2, 3 y 4 cargan Bootstrap 5.3.3 desde CDN, así que necesitan conexión a internet.
+Los ejercicios 2, 3, 4 y 5 cargan Bootstrap desde CDN (y el 5 también jQuery), así que necesitan conexión a internet.
 
 ## Autor
 
