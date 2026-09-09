@@ -1,0 +1,49 @@
+body {
+  background-color: #f5f6fa;
+}
+
+.navbar-brand .bi-collection-play {
+  color: #0d6efd;
+}
+
+.movie-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card.card-hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.movie-card img {
+  height: 320px;
+  object-fit: cover;
+}
+
+.favorite-btn {
+  cursor: pointer;
+  color: #adb5bd;
+}
+
+.favorite-btn.active {
+  color: #dc3545;
+}
+
+.fav-mini-img {
+  height: 90px;
+  object-fit: cover;
+}
+
+#loadingSpinner {
+  min-height: 200px;
+}
+
+.detail-poster {
+  width: 100%;
+  max-width: 350px;
+  object-fit: cover;
+}
+
+.metascore-bar {
+  height: 8px;
+}
