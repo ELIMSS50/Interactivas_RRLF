@@ -1,4 +1,3 @@
-// Lógica de la página de detalle (reseña.html)
 const API_URL_DETALLE = 'https://api.imdbapi.dev/titles/';
 
 let peliculasLocal = [];
@@ -16,7 +15,6 @@ $(document).ready(function () {
     cargarPelicula(id);
   }
 
-  // Modal de favoritos: se necesitan las 250 peliculas locales para poder listarlas
   $('#btnFavoritos').on('click', function () {
     if (peliculasLocal.length) {
       renderModalFavoritos(peliculasLocal);
@@ -65,7 +63,7 @@ function cargarPelicula(id) {
       mostrarPelicula(data);
     })
     .fail(function () {
-      // Si la API falla, se busca la película en el archivo local
+      // Si la API falla se busca la película en el archivo local
       $.getJSON('peliculas.json')
         .done(function (data) {
           peliculasLocal = data;

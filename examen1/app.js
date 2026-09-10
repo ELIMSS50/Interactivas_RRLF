@@ -1,4 +1,3 @@
-// Lógica de la página de inicio: carga de datos, filtros, búsqueda y favoritos
 const API_URL = 'https://api.imdbapi.dev/titles/top-rated';
 
 let peliculas = [];
@@ -8,7 +7,6 @@ $(document).ready(function () {
   actualizarContadorFavoritos();
   cargarPeliculas();
 
-  // Filtro por década
   $('#filtrosDecada button').on('click', function () {
     $('#filtrosDecada button').removeClass('active');
     $(this).addClass('active');
@@ -16,28 +14,27 @@ $(document).ready(function () {
     renderMovies();
   });
 
-  // Busqueda en tiempo real
   $('#buscador').on('keyup', function () {
     renderMovies();
   });
 
-  // Reintentar carga
+  $('#formBuscador').on('submit', function (e) {
+    e.preventDefault();
+  });
+
   $('#btnReintentar').on('click', cargarPeliculas);
 
-  // Abrir modal de favoritos
   $('#btnFavoritos').on('click', function () {
     renderModalFavoritos(peliculas);
     $('#favoritosModal').modal('show');
   });
 
-  // Eliminar todos los favoritos
   $('#btnEliminarTodos').on('click', function () {
     eliminarTodosFavoritos();
     renderModalFavoritos(peliculas);
     renderMovies();
   });
 
-  // Delegación: favorito individual desde el modal y desde las cards
   $(document).on('click', '.eliminar-favorito', function () {
     const id = $(this).data('id');
     eliminarFavorito(id);
@@ -50,8 +47,9 @@ $(document).ready(function () {
     e.stopPropagation();
     const id = $(this).data('id');
     const activo = toggleFavorito(id);
-    $(this).toggleClass('active', activo);
-    $(this).find('i').toggleClass('bi-heart bi-heart-fill');
+    $(this).toggleClass('active', activo)
+      .toggleClass('bi-heart', !activo)
+      .toggleClass('bi-heart-fill', activo);
   });
 });
 
@@ -120,18 +118,18 @@ function renderMovies() {
     const card = `
       <div class="col-12 col-sm-6 col-lg-3">
         <div class="card h-100 movie-card">
-          <img src="${img}" class="card-img-top" alt="${p.primaryTitle}">
+          <div class="poster-wrap">
+            <img src="${img}" class="card-img-top" alt="${p.primaryTitle}">
+            <span class="rating-badge"><i class="bi bi-star-fill"></i> ${p.averageRating || 'N/A'}</span>
+            <span class="year-badge">${p.startYear || 'N/A'}</span>
+          </div>
           <div class="card-body d-flex flex-column">
-            <div class="d-flex justify-content-between align-items-start">
+            <div class="d-flex justify-content-between align-items-start gap-2">
               <h6 class="card-title mb-1">${p.primaryTitle}</h6>
               <i class="bi ${iconoCorazon} favorite-btn ${favoritoActivo ? 'active' : ''}" data-id="${p.id}"></i>
             </div>
-            <div class="d-flex justify-content-between text-muted small mb-2">
-              <span>${p.startYear || 'N/A'}</span>
-              <span>${p.averageRating || 'N/A'} <i class="bi bi-star-fill text-warning"></i></span>
-            </div>
-            <div class="text-warning mb-2">${generarEstrellas(p.averageRating)}</div>
-            <a href="resena.html?id=${p.id}" class="btn btn-primary mt-auto"><i class="bi bi-eye"></i> Ver reseña</a>
+            <div class="mb-3 small">${generarEstrellas(p.averageRating)}</div>
+            <a href="resena.html?id=${p.id}" class="btn btn-primary mt-auto">Ver reseña</a>
           </div>
         </div>
       </div>
@@ -139,7 +137,6 @@ function renderMovies() {
     $grid.append(card);
   });
 
-  // Efecto de elevación con jQuery .hover()
   $('.movie-card').hover(
     function () { $(this).addClass('card-hover'); },
     function () { $(this).removeClass('card-hover'); }

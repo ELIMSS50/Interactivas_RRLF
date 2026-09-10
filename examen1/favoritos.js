@@ -1,4 +1,3 @@
-// Manejo de favoritos compartido entre index.html y resena.html usando localStorage
 const FAVORITOS_KEY = 'movieReviews_favoritos';
 
 function getFavoritos() {
@@ -50,7 +49,6 @@ function generarEstrellas(rating) {
   return html;
 }
 
-// Construye el contenido del modal de favoritos a partir de un arreglo de peliculas
 function renderModalFavoritos(peliculas) {
   const favoritos = getFavoritos();
   const $body = $('#favoritosModalBody');

@@ -1,18 +1,77 @@
 body {
-  background-color: #f5f6fa;
+  background-color: #f4f6fb;
+  color: #1c2431;
 }
 
-.navbar-brand .bi-collection-play {
-  color: #0d6efd;
+/* Navbar */
+.navbar-brand .bi-collection-play,
+.navbar-brand .text-primary {
+  color: #f0a500 !important;
 }
 
+.navbar .form-control {
+  border-radius: 20px;
+  min-width: 220px;
+}
+
+/* Encabezado */
+.hero {
+  padding: 40px 0 20px;
+}
+
+.hero .eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #2f6bff;
+  background-color: #e7eeff;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-weight: bold;
+}
+
+.hero .lead {
+  color: #6b7789 !important;
+}
+
+/* Filtros por década */
+#filtrosDecada {
+  gap: 8px;
+  justify-content: center;
+}
+
+#filtrosDecada .btn {
+  border: 1px solid #dfe4ee;
+  background-color: #fff;
+  color: #6b7789;
+  border-radius: 20px;
+  padding: 6px 18px;
+}
+
+#filtrosDecada .btn:hover {
+  color: #2f6bff;
+  border-color: #2f6bff;
+}
+
+#filtrosDecada .btn.active {
+  background-color: #2f6bff;
+  border-color: #2f6bff;
+  color: #fff;
+}
+
+/* Cards de películas */
 .movie-card {
+  overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .movie-card.card-hover {
   transform: translateY(-6px);
-  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .movie-card img {
@@ -20,30 +79,114 @@ body {
   object-fit: cover;
 }
 
+.poster-wrap {
+  position: relative;
+}
+
+.rating-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #fff;
+  color: #8a5f00;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.rating-badge .bi-star-fill,
+.card-body .bi-star-fill,
+.card-body .bi-star {
+  color: #f0a500;
+}
+
+.year-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 13px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
 .favorite-btn {
   cursor: pointer;
-  color: #adb5bd;
+  color: #c2cad6;
+  font-size: 18px;
 }
 
 .favorite-btn.active {
   color: #dc3545;
 }
 
+/* Favoritos */
 .fav-mini-img {
-  height: 90px;
+  height: 120px;
   object-fit: cover;
 }
 
 #loadingSpinner {
-  min-height: 200px;
+  min-height: 300px;
 }
 
+/* Página de detalle */
 .detail-poster {
   width: 100%;
-  max-width: 350px;
+  max-width: 340px;
   object-fit: cover;
+}
+
+.detail-meta {
+  color: #6b7789;
+  font-size: 14px;
+}
+
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6b7789;
+  font-weight: bold;
+  margin-bottom: 6px;
 }
 
 .metascore-bar {
   height: 8px;
+}
+
+#rating,
+#estrellas {
+  color: #f0a500 !important;
+}
+
+.info-grid .info-item {
+  background-color: #fff;
+  border: 1px solid #dfe4ee;
+  border-radius: 6px;
+  padding: 10px 12px;
+  height: 100%;
+}
+
+.info-grid .info-item strong {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6b7789;
+}
+
+#sinopsis {
+  line-height: 1.6;
+}
+
+#enlacesExternos a {
+  color: #6b7789;
+  word-break: break-all;
+}
+
+@media (max-width: 767px) {
+  .movie-card img {
+    height: 250px;
+  }
 }
