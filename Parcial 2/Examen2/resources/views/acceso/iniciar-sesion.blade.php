@@ -9,7 +9,6 @@
                 <x-icono name="login" class="size-6" />
             </span>
             <h1 class="text-2xl font-bold tracking-tight text-slate-900">Inicia sesión</h1>
-            <p class="mt-1 text-sm text-slate-500">Accede para gestionar o inscribirte en torneos.</p>
         </div>
 
         <div class="card p-8">
@@ -40,7 +39,7 @@
 
         <p class="mt-6 text-center text-sm text-slate-500">
             ¿No tienes cuenta?
-            <a href="{{ route('register') }}" class="font-semibold text-indigo-600 hover:text-indigo-500">Regístrate como jugador</a>
+            <a href="{{ route('register') }}" class="font-semibold text-indigo-600 hover:text-indigo-500">Regístrate</a>
         </p>
     </div>
 @endsection

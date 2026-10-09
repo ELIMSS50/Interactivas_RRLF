@@ -8,7 +8,7 @@
             <span class="mx-auto mb-4 flex size-12 items-center justify-center rounded-xl bg-indigo-600 text-white">
                 <x-icono name="user-plus" class="size-6" />
             </span>
-            <h1 class="text-2xl font-bold tracking-tight text-slate-900">Crea tu cuenta de jugador</h1>
+            <h1 class="text-2xl font-bold tracking-tight text-slate-900">Crea tu cuenta</h1>
             <p class="mt-1 text-sm text-slate-500">Regístrate para inscribirte en los torneos.</p>
         </div>
 

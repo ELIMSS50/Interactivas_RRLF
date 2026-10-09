@@ -44,12 +44,15 @@
                                     <p class="text-xs text-slate-500">{{ $torneo->juego }}</p>
                                 </td>
                                 <td class="px-5 py-4 whitespace-nowrap text-slate-600">{{ $torneo->fecha->format('d/m/Y') }}</td>
-                                <td class="w-48 px-5 py-4">
-                                    <x-cupo :torneo="$torneo" />
-                                </td>
-                                <td class="px-5 py-4">
-                                    <x-estado :torneo="$torneo" />
-                                </td>
+                                <td class="px-5 py-4 whitespace-nowrap text-slate-700">
+                                {{ $torneo->inscritos() }}/{{ $torneo->cupo }}
+                                <span @class(['ml-1 font-medium', 'text-rose-600' => $torneo->estaLleno(), 'text-emerald-600' => ! $torneo->estaLleno()])>
+                                    {{ $torneo->estaLleno() ? 'Lleno' : 'Libre' }}
+                                </span>
+                            </td>
+                            <td @class(['px-5 py-4 font-medium', 'text-emerald-600' => $torneo->estaAbierto(), 'text-rose-600' => ! $torneo->estaAbierto()])>
+                                {{ ucfirst($torneo->estado) }}
+                            </td>
                                 <td class="px-5 py-4 text-right">
                                     @if ($torneo->permiteCancelar())
                                         <form method="POST" action="{{ route('torneos.cancelar', $torneo) }}"
