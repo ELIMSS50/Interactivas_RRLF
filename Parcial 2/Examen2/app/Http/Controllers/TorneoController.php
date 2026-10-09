@@ -10,11 +10,7 @@ class TorneoController extends Controller
 {
     public function index(Request $request): View
     {
-        $torneos = Torneo::query()
-            ->where(fn ($query) => $query->disponibles())
-            ->orWhere(fn ($query) => $query
-                ->where('estado', Torneo::ESTADO_CERRADO)
-                ->whereDate('fecha', '>', today()))
+        $torneos = Torneo::disponibles()
             ->withCount('inscripciones')
             ->orderBy('fecha')
             ->orderBy('nombre')
