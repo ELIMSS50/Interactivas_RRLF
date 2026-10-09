@@ -114,4 +114,53 @@ Un torneo está **disponible** cuando está `abierto`, su fecha es posterior a h
 
 Iniciar el servidor con `php artisan serve` y abrir http://127.0.0.1:8000. Las cuentas son las de la sección [Cuentas demo](#cuentas-demo).
 
+Antes de empezar conviene reiniciar los datos con `php artisan migrate:fresh --seed`.
+
+### 1. Consulta pública (sin cuenta)
+
+1. Abrir la página principal sin iniciar sesión.
+2. Se ven los torneos disponibles ordenados por fecha.
+3. Entrar al detalle de un torneo: se ve la información, pero en lugar de *Inscribirme* pide iniciar sesión.
+4. Intentar abrir `/admin` o `/mis-torneos` sin sesión: redirige al login.
+
+### 2. Registro e inicio de sesión
+
+1. Ir a **Registrarse** (`/registro`) y crear una cuenta nueva. Entra como jugador.
+2. Probar a enviar el formulario vacío o con un correo ya usado: aparecen los errores debajo de cada campo.
+3. Cerrar sesión y entrar con `ana@torneos.com` / `jugador123` desde `/login`.
+4. Probar una contraseña incorrecta: sale "El correo o la contraseña son incorrectos." y no deja entrar.
+
+### 3. Administrador: gestión de torneos
+
+Entrar con `admin@torneos.com` / `admin12345`.
+
+1. **Crear:** ir a *Torneos → Nuevo torneo* y guardar uno con datos válidos. Aparece el aviso verde y el torneo en la lista.
+2. **Validaciones:** intentar guardar con campos vacíos, una fecha de hoy o pasada, o un cupo de 1 o 200. Cada error sale debajo de su campo.
+3. **Editar:** cambiar el nombre o el estado de un torneo y guardar.
+4. **Cupo menor a inscritos:** editar *Copa FIFA Otoño* (2 inscritos) y poner cupo 1. No lo permite.
+5. **Eliminar:** borrar *Gran Final Smash*. Desaparece de la lista y de la página principal.
+
+### 4. Administrador: inscripciones
+
+1. En la lista de torneos, abrir los inscritos de *Copa FIFA Otoño*: aparecen Ana y Carlos.
+2. Dar de baja a uno. Se libera la plaza.
+3. el administrador sí puede dar de baja aunque la fecha ya haya llegado.
+4. Con una cuenta de jugador, intentar abrir `/admin`: no tiene acceso.
+
+### 5. Jugador: inscribirse y cancelar
+
+Entrar con `pedro@torneos.com` / `jugador123` (no tiene inscripciones).
+
+1. **Inscribirse:** abrir *Torneo de Ajedrez Relámpago* y pulsar *Inscribirme*. Sale el aviso verde.
+2. **Mis torneos:** ir a `/mis-torneos` y ver el torneo en la lista.
+3. **Duplicado:** volver al mismo torneo; ya no aparece el botón de inscribirse.
+4. **Cancelar:** cancelar la inscripción desde *Mis torneos*. La plaza vuelve a quedar libre.
+5. **Torneo cerrado o lleno:** *Copa de Tenis Cerrada* no deja inscribirse y *Liga de Pádel Express* no aparece por estar llena.
+6. **Fecha alcanzada:** entrar con `ana@torneos.com`; en *Mis torneos*, *Fútbol Rápido de Hoy* ya no se puede cancelar.
+
+### 6. Datos de prueba
+
+1. Ejecutar `php artisan migrate:fresh --seed`.
+2. Comprobar que se pueden usar todas las cuentas de [Cuentas demo](#cuentas-demo) y que aparecen los torneos de la tabla [Torneos demo](#torneos-demo).
+
 
