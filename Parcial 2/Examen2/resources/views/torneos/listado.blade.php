@@ -48,13 +48,85 @@
 @endsection
 
 @section('content')
+    <form method="GET" action="{{ route('home') }}" class="mb-6">
+        <div class="flex gap-2">
+            <div class="relative flex-1">
+                <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400">
+                    <x-icono name="search" class="size-4" />
+                </span>
+                <input type="text" name="q" value="{{ request('q') }}" placeholder="Buscar por nombre o juego" class="input pl-9">
+            </div>
+
+            <button type="button" onclick="mostrarFiltros()" class="btn btn-secondary" title="Filtros">
+                <x-icono name="filter" class="size-4" />
+                <span class="hidden sm:inline">Filtros</span>
+            </button>
+
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+
+        @if ($hayFiltros)
+            <div id="filtros" class="card mt-3 p-4">
+        @else
+            <div id="filtros" class="card mt-3 p-4" style="display: none;">
+        @endif
+            <div class="grid gap-4 sm:grid-cols-3">
+                <div>
+                    <label for="juego" class="label">Juego</label>
+                    <select name="juego" id="juego" class="input">
+                        <option value="">Todos</option>
+                        @foreach ($juegos as $item)
+                            @if (request('juego') == $item->juego)
+                                <option value="{{ $item->juego }}" selected>{{ $item->juego }}</option>
+                            @else
+                                <option value="{{ $item->juego }}">{{ $item->juego }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+
+                <div>
+                    <label for="desde" class="label">Desde</label>
+                    <input type="date" name="desde" id="desde" value="{{ request('desde') }}" class="input">
+                </div>
+
+                <div>
+                    <label for="hasta" class="label">Hasta</label>
+                    <input type="date" name="hasta" id="hasta" value="{{ request('hasta') }}" class="input">
+                </div>
+            </div>
+
+            <div class="mt-4 flex justify-end gap-2">
+                <a href="{{ route('home') }}" class="btn btn-secondary">Limpiar</a>
+                <button type="submit" class="btn btn-primary">Aplicar filtros</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function mostrarFiltros() {
+            var filtros = document.getElementById('filtros');
+
+            if (filtros.style.display == 'none') {
+                filtros.style.display = 'block';
+            } else {
+                filtros.style.display = 'none';
+            }
+        }
+    </script>
+
     @if ($torneos->isEmpty())
         <div class="card flex flex-col items-center px-6 py-16 text-center">
             <span class="mb-4 flex size-12 items-center justify-center rounded-full bg-slate-100 text-slate-500">
                 <x-icono name="inbox" class="size-6" />
             </span>
-            <h2 class="text-lg font-semibold text-slate-900">No hay torneos disponibles por el momento</h2>
-            <p class="mt-1 text-sm text-slate-500">Vuelve pronto para ver nuevos torneos con inscripciones abiertas.</p>
+            @if (request('q') != '' || $hayFiltros)
+                <h2 class="text-lg font-semibold text-slate-900">No se encontraron torneos</h2>
+                <p class="mt-1 text-sm text-slate-500">Prueba con otros filtros o pulsa Limpiar.</p>
+            @else
+                <h2 class="text-lg font-semibold text-slate-900">No hay torneos disponibles por el momento</h2>
+                <p class="mt-1 text-sm text-slate-500">Vuelve pronto para ver nuevos torneos con inscripciones abiertas.</p>
+            @endif
         </div>
     @else
         <div class="mb-5 flex items-center justify-between">
